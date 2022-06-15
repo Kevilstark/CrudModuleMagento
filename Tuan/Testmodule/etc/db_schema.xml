@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="tuan_magento" resource="default" engine="innodb" comment="hehe">
+        <column xsi:type="int" name="tuan_id" unsigned="true" nullable="false" identity="true" comment=""/>
+        <column xsi:type="text" name="test1" nullable="true" comment=""/>
+        <column xsi:type="text" name="test2" nullable="true" comment=""/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="tuan_id"/>
+        </constraint>
+    </table>
+</schema>

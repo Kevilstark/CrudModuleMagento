@@ -1,0 +1,37 @@
+<?php
+/** @var \Tuan\Testmodule\Block\Index */
+?>
+<h1>hello kitty</h1>
+<?php 
+    $tuandata = $block->getTuanData();
+?>
+<div class="table-wrapper post-table">
+    <table class="data table table-post-items" id="my-post-table">
+        <thead>
+            <tr>
+                <th ><?= __('id'); ?></th>
+                <th ><?= __('test1'); ?></th>
+                <th ><?= __('test2'); ?></th> 
+                <th colspan="2"><?= __('Action'); ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                foreach($tuandata as $value):
+            ?>
+            <tr>
+                <td data-th="<?= $block->escapeHtml(__('id')) ?>"><?= $value->getTuan_id(); ?></td>
+                <td data-th="<?= $block->escapeHtml(__('test1')) ?>"><?= $value->getCol1(); ?></td>
+                <td data-th="<?= $block->escapeHtml(__('test2')) ?>"><?= $value->getCol2(); ?></td>
+                <td>
+                    <a href="<?= $block->getUrl('tuan/post/edit').'id/'.$value->getTuan_id(); ?>" class="action primary">Edit</a>
+                </td>
+                <td>
+                    <a href="<?= $block->getUrl('tuan/post/delete').'id/'.$value->getTuan_id(); ?>" class="action primary">Delete</a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<a class="action primary" href="<?= $block->getUrl('tuan/post/edit'); ?>">Add Record</a>

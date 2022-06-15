@@ -1,0 +1,29 @@
+<?php
+/** @var \Tuan\Testmodule\Block\Save */
+?>
+
+<?php 
+    $tuandata = $block->getTuanDataId();
+    $colid = "";
+    $col1 = "";
+    $col2 = "";
+
+    if (empty($tuandata)) {
+?>
+        <h1>Add new record</h1>
+<?php
+    }else{
+?>
+        <h1>Edit record</h1>
+<?php
+        $colid = $tuandata->getTuan_id();
+        $col1 = $tuandata->getCol1();
+        $col2 = $tuandata->getCol2();
+    }   
+?>
+<form class="form" action="<?=$block->geturl('tuan/post/save') ?>" method="post">
+    <input name="Id" value="<?= $colid ?>" readonly>
+    <input name="test1" placeholder="please insert test1.... " value="<?= $col1 ?>">
+    <input name="test2" placeholder="please insert test2.... " value="<?= $col2 ?>">
+    <button class="action primary" type="summit">Save</Button>
+</form>
